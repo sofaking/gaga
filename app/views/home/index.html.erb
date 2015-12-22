@@ -1,0 +1,19 @@
+<h1>Board games events</h1>
+<p>Find and attend board games events near you</p>
+<div>
+  <h3>Filter</h3>
+  <%= form_tag method: :filter do %>
+    <%= collection_check_boxes :filter, :games, Game.all, :id, :name %>
+    <%= submit_tag 'Filter' %>
+  <% end %>
+</div>
+<table>
+  <thead>
+    <td>Starts at</td>
+    <td>Ends at</td>
+    <td>Games</td>
+  </thead>
+  <% @events.each do |event| %>
+    <%= render event %>
+  <% end %>
+</table> 
